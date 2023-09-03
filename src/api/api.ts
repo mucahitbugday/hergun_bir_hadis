@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 
-const BASE_URL = 'https://api.kodcuadam.com/api/';
+const BASE_URL = 'https://hadeethenc.com/api/v1/';
 
 export const getApiData = async (endpoint: string): Promise<any> => {
     console.log("endpoint", `${BASE_URL}${endpoint}`);

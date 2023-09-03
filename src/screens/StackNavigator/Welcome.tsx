@@ -1,11 +1,30 @@
 import { StyleSheet, Text, View, Button } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDeviceContext } from '../../context/DeviceContext';
+import { getLocales } from "react-native-localize";
+
+
+
+
+
+
 
 const Welcome = ({ navigation }: any) => {
+
+    const { setDevice, device } = useDeviceContext();
+
+    useEffect(() => {
+        setDevice({ Language: getLocales()[0].languageCode });
+    }, []);
+
+
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Welcome</Text>
-            <Button title='Go' onPress={() => navigation.navigate('MainApp')}></Button>
+            <Text style={styles.title}>{device?.Language}</Text>
+
+            <Button title='Go' onPress={() => navigation.navigate('Home')}></Button>
         </View>
     )
 }
